@@ -61,17 +61,32 @@ public class SortingAlgorithmTest {
     public void testSortowanieTO2(){
 
         double[] toSort=new double[1000];
-        for(int i=0;i<toSort.length-1;i++){
+        for(int i=0;i<toSort.length;i++){
             toSort[i]=Math.random();
         }
         classUnderTest.sort(toSort,true);
-        boolean test=true;
+
         for(int i=0;i<toSort.length-1;i++){
-            if(toSort[i]>toSort[i+1]){
-                test=false;
-                break;
-            }
+           Assert.assertTrue(toSort[i]<=toSort[i+1]);
         }
-        Assert.assertTrue(test);
     }
+<<<<<<< HEAD
+=======
+
+    @Test(timeout = 100)
+    public void testSortowanieTO3(){
+        Random los=new Random();
+        double[] toSort=new double[10000];
+        for(int i=0;i<toSort.length;i++){
+            toSort[i]=los.nextDouble();
+        }
+        classUnderTest.sort(toSort,true);
+
+        for(int i=0;i<toSort.length-1;i++){
+            Assert.assertTrue(toSort[i]<toSort[i+1]);
+
+        }
+
+    }
+
 }
