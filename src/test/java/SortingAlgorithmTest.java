@@ -57,4 +57,21 @@ public class SortingAlgorithmTest {
             Assert.assertTrue(toSort[i] <= toSort[i+1]);
         }
     }
+    @Test
+    public void testSortowanieTO2(){
+
+        double[] toSort=new double[1000];
+        for(int i=0;i<toSort.length-1;i++){
+            toSort[i]=Math.random();
+        }
+        classUnderTest.sort(toSort,true);
+        boolean test=true;
+        for(int i=0;i<toSort.length-1;i++){
+            if(toSort[i]>toSort[i+1]){
+                test=false;
+                break;
+            }
+        }
+        Assert.assertTrue(test);
+    }
 }
