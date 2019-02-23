@@ -73,6 +73,7 @@ public class SortingAlgorithmTest {
 <<<<<<< HEAD
 =======
 
+
     @Test(timeout = 100)
     public void testSortowanieTO3(){
         Random los=new Random();
@@ -81,10 +82,8 @@ public class SortingAlgorithmTest {
             toSort[i]=los.nextDouble();
         }
         classUnderTest.sort(toSort,true);
-
         for(int i=0;i<toSort.length-1;i++){
-            Assert.assertTrue(toSort[i]<toSort[i+1]);
-
+            Assert.assertTrue(toSort[i]<=toSort[i+1]);
         }
 
     }
