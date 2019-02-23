@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+
 public class SortingAlgorithmTest {
 
     private SortingAlgorithms classUnderTest;
@@ -39,4 +41,20 @@ public class SortingAlgorithmTest {
         Assert.assertArrayEquals(expected, toSort, 0.001);
     }
 
+    @Test
+    public void testLosowejTablicy() {
+        Random random = new Random();
+
+        double[] toSort = new double[1000];
+
+        for (int i = 0; i < toSort.length; i++) {
+            toSort[i] = random.nextDouble();
+        }
+
+        classUnderTest.sort(toSort, true);
+
+        for (int i = 0; i < toSort.length - 1; i++) {
+            Assert.assertTrue(toSort[i] <= toSort[i+1]);
+        }
+    }
 }
